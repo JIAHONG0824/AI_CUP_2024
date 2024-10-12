@@ -27,4 +27,9 @@ python bm25_retrieve.py --question_path dataset\preliminary\questions_example.js
 ```
 python evaluate_bm25.py
 ```
-### Baseline Precision@1: 0.7133333333333334
+```
+Precision@1 for faq:  0.9
+Precision@1 for finance:  0.44
+Precision@1 for insurance:  0.8
+Average Precision@1:  0.7133333333333334
+```
