@@ -1,5 +1,5 @@
 import json
-
+import os
 with open("dataset/preliminary/pred_retrieve_baseline.json", "r") as f:
     predictions = json.load(f)["answers"]
 with open("dataset/preliminary/ground_truths_example.json", "r") as f:
@@ -35,6 +35,8 @@ for i in range(len(ground_truths)):
                 "category": ground_truths[i]["category"],
             }
         )
+if not os.path.exists("baseline"):
+    os.makedirs("baseline")
 with open("baseline/finance.json", "w") as f:
     json.dump(finance, f, ensure_ascii=False, indent=4)
 with open("baseline/insurance.json", "w") as f:
