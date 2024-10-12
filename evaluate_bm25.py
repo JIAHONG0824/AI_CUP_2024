@@ -55,8 +55,11 @@ for pred in finance:
 for pred in insurance:
     if pred["retrieve"] == pred["ground_truths"]:
         insurance_match += 1
+print("faq match: ", faq_match)
 print("Precision@1 for faq: ", faq_match / len(faq))
+print("finance match: ", finance_match)
 print("Precision@1 for finance: ", finance_match / len(finance))
+print("insurance match: ", insurance_match)
 print("Precision@1 for insurance: ", insurance_match / len(insurance))
 print(
     "Average Precision@1: ",
