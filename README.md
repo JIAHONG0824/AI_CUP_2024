@@ -22,3 +22,9 @@ python bm25_retrieve.py --question_path dataset\preliminary\questions_example.js
         ├── 1.pdf
         └── ...
 ```
+
+### run the following command to get baseline Precision@1 
+```
+python evaluate.py
+```
+### Baseline Precision@1: 0.7133333333333334
