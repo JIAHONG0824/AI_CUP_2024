@@ -1,4 +1,24 @@
-# AI_CUP_2024
-AI_CUP_2024 implementation
+### First run the following command to get pred_retrieve_baseline.json
+```
+python bm25_retrieve.py --question_path dataset\preliminary\questions_example.json --source_path reference --output_path dataset\preliminary\pred_retrieve_baseline.json
+```
 
-pdf_2_image.py : preprocessor pdf to image.
+### Folder structure
+```
+├── dataset
+│   ├── preliminary
+│   │   └── questions_example.json
+│   │   └── ground_truths_example.json
+│   │   └── pred_retrieve_baseline.json
+└── reference
+    ├── faq
+    │   └── pid_map_content.json
+    ├── insurance
+    │   ├── 1.pdf
+    │   ├── 2.pdf
+    │   └── ...
+    └── finance
+        ├── 0.pdf
+        ├── 1.pdf
+        └── ...
+```
