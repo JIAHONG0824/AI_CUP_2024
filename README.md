@@ -1,6 +1,6 @@
 ### First run the following command to get pred_retrieve_baseline.json
 ```
-python bm25_retrieve.py --question_path dataset\preliminary\questions_example.json --source_path reference --output_path dataset\preliminary\pred_retrieve_baseline.json
+python bm25_retrieve.py --question_path dataset\preliminary\questions_example.json --source_path reference --output_path pred_retrieve.json
 ```
 
 ### Folder structure
