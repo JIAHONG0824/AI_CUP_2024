@@ -1,15 +1,9 @@
-### First run the following command to get pred_retrieve_baseline.json
-```
-python bm25_retrieve.py --question_path dataset\preliminary\questions_example.json --source_path reference --output_path pred_retrieve.json
-```
-
 ### Folder structure
 ```
 ├── dataset
 │   ├── preliminary
 │   │   └── questions_example.json
 │   │   └── ground_truths_example.json
-│   │   └── pred_retrieve_baseline.json
 └── reference
     ├── faq
     │   └── pid_map_content.json
@@ -22,14 +16,29 @@ python bm25_retrieve.py --question_path dataset\preliminary\questions_example.js
         ├── 1.pdf
         └── ...
 ```
-
+### First run the following command to get pred_retrieve.json
+```
+python bm25_retrieve.py --question_path dataset\preliminary\questions_example.json --source_path reference --output_path pred_retrieve.json
+```
 ### run the following command to get baseline Precision@1 
 ```
 python evaluate_bm25.py
 ```
 ```
-Precision@1 for faq:  0.9
-Precision@1 for finance:  0.44
-Precision@1 for insurance:  0.8
-Average Precision@1:  0.7133333333333334
+Performance Metrics:
+
+1. FAQ Domain:
+   - Precision@1: 0.9
+   - Matched: 45 out of 50
+
+2. Finance Domain:
+   - Precision@1: 0.44
+   - Matched: 22 out of 50
+
+3. Insurance Domain:
+   - Precision@1: 0.8
+   - Matched: 40 out of 50
+
+Overall Average:
+- Averaged Precision@1: 0.7133333333333334
 ```
