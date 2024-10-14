@@ -13,5 +13,5 @@ for i in range(len(pid_map_content)):
             {"text": qa["question"], "metadata": {"answers": qa["answers"], "id": i}}
         )
 print(len(documents))
-with open("faq_documents.json", "w", encoding="utf8") as f:
+with open("faq/faq_documents.json", "w", encoding="utf8") as f:
     json.dump(documents, f, ensure_ascii=False, indent=4)
