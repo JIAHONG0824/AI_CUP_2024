@@ -2,7 +2,7 @@ import json
 
 with open("dataset/preliminary/ground_truths_example.json", "rb") as f:
     ground_truths = json.load(f)["ground_truths"]
-with open("pred_retrieve.json", "rb") as f:
+with open("bm25/pred_retrieve.json", "rb") as f:
     answers = json.load(f)["answers"]
 insurance_match = 0
 finance_match = 0
