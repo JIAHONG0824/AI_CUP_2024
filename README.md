@@ -50,3 +50,9 @@ match 48/50\
 另外insurance和finance兩種\
 performance出奇地差 幾乎找不到\
 特別需要改善
+insurance改用embeddings方法\
+先對md file做 markdown image remove\
+再根據## header2切割\
+得到的效果是
+0.68
+34/50
