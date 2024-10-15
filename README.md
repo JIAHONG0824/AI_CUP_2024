@@ -56,3 +56,12 @@ insurance改用embeddings方法\
 得到的效果是
 0.68
 34/50
+
+insurance改用embeddings方法\
+先對md file做 markdown image remove\
+再根據## header2切割後\
+再對兩個\n\n去切割\
+得到的效果是
+0.88
+44/50
+
