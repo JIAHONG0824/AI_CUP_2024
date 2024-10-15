@@ -43,10 +43,10 @@ Overall Average:
 - Averaged Precision@1: 0.7133333333333334
 ```
 temp
-faq改用embeddings方法
-precision 0.96
-match 48/50
-問題數過少 不曉得提升幅度多大
-另外insurance和finance兩種
-performance出奇地差 幾乎找不到
+faq改用embeddings方法\
+precision 0.96\
+match 48/50\
+問題數過少 不曉得提升幅度多大\
+另外insurance和finance兩種\
+performance出奇地差 幾乎找不到\
 特別需要改善
