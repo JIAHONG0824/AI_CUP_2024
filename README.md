@@ -65,3 +65,11 @@ insurance改用embeddings方法\
 0.88
 44/50
 
+insurance改用embeddings方法\
+先對md file做 markdown image remove\
+再根據## header2切割後\
+再對兩個\n\n去切割\
+超過500字再去切割\
+得到的效果是
+0.88
+44/50 ->所以感覺不是chunk的問題了，可以試試看用openai做embedding看看會不會比較好
