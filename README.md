@@ -43,7 +43,7 @@ Performance Metrics:
 Overall Average:
 - Averaged Precision@1: 0.7133333333333334
 ```
-#embeddings
+# embeddings
 ```
 Performance Metrics:
 
