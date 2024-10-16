@@ -82,3 +82,7 @@ insurance改用embeddings方法\
 得到的效果是
 0.88
 44/50 
+finance改用embeddings方法\
+0.54
+27/50
+很值得提升
