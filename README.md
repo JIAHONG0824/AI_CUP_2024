@@ -24,6 +24,7 @@ python bm25_retrieve.py --question_path dataset\preliminary\questions_example.js
 ```
 python evaluate_bm25.py
 ```
+# BM25
 ```
 Performance Metrics:
 
@@ -42,47 +43,22 @@ Performance Metrics:
 Overall Average:
 - Averaged Precision@1: 0.7133333333333334
 ```
-temp
-faq改用embeddings方法\
-precision 0.96\
-match 48/50\
-問題數過少 不曉得提升幅度多大\
-另外insurance和finance兩種\
-performance出奇地差 幾乎找不到\
-特別需要改善
-insurance改用embeddings方法\
-先對md file做 markdown image remove\
-再根據## header2切割\
-得到的效果是
-0.68
-34/50
+#embeddings
+```
+Performance Metrics:
 
-insurance改用embeddings方法\
-先對md file做 markdown image remove\
-再根據## header2切割後\
-再對兩個\n\n去切割\
-得到的效果是
-0.88
-44/50
+1. FAQ Domain:
+   - Precision@1: 0.96
+   - Matched: 48 out of 50
 
-insurance改用embeddings方法\
-先對md file做 markdown image remove\
-再根據## header2切割後\
-再對兩個\n\n去切割\
-超過500字再去切割\
-得到的效果是
-0.88
-44/50 ->所以感覺不是chunk的問題了，可以試試看用openai做embedding看看會不會比較好
+2. Finance Domain:
+   - Precision@1: 0.54
+   - Matched: 27 out of 50
 
-insurance改用embeddings方法\
-先對md file做 markdown image remove\
-再根據## header2切割後\
-再對兩個\n\n去切割\
-觀察到中間有些會斷掉，調整一下後沒斷了\
-得到的效果是
-0.88
-44/50 
-finance改用embeddings方法\
-0.54
-27/50
-很值得提升
+3. Insurance Domain:
+   - Precision@1: 0.88
+   - Matched: 44 out of 50
+
+Overall Average:
+- Averaged Precision@1: 0.7133333333333334
+```
