@@ -43,7 +43,7 @@ Performance Metrics:
 Overall Average:
 - Averaged Precision@1: 0.7133333333333334
 ```
-# embeddings
+### embeddings
 ```
 Performance Metrics:
 
@@ -62,8 +62,8 @@ Performance Metrics:
 Overall Average:
 - Averaged Precision@1: 0.7933333
 ```
-# embeddings:multilingual-e5-large
-# reranker:jina-reranker-v2-base-multilingual
+### embeddings:multilingual-e5-large
+### reranker:jina-reranker-v2-base-multilingual
 ```
 Performance Metrics:
 
@@ -80,5 +80,8 @@ Performance Metrics:
    - Matched: 49 out of 50
 
 Overall Average:
-- Averaged Precision@1: 0.7933333
+- Averaged Precision@1: 0.78
 ```
+加了reranker之後 目前只需要改善finance的performance
+目前想到利用LLM對table做summary summary拿來轉成embeddings
+其餘還有什麼方法?
