@@ -62,3 +62,23 @@ Performance Metrics:
 Overall Average:
 - Averaged Precision@1: 0.7933333
 ```
+# embeddings:multilingual-e5-large
+# reranker:jina-reranker-v2-base-multilingual
+```
+Performance Metrics:
+
+1. FAQ Domain:
+   - Precision@1: 0.94
+   - Matched: 47 out of 50
+
+2. Finance Domain:
+   - Precision@1: 0.42
+   - Matched: 21 out of 50
+
+3. Insurance Domain:
+   - Precision@1: 0.98
+   - Matched: 49 out of 50
+
+Overall Average:
+- Averaged Precision@1: 0.7933333
+```
