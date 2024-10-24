@@ -85,3 +85,8 @@ Overall Average:
 加了reranker之後 目前只需要改善finance的performance
 目前想到利用LLM對table做summary summary拿來轉成embeddings
 其餘還有什麼方法?
+
+1.執行build_documents.py 取得documents\
+2.pinecone_index_setup.py 設定好資料庫
+3.pinecone_search.py 搜尋
+4.evaluate.py 計算結果
