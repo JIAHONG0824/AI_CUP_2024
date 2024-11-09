@@ -24,7 +24,7 @@ def upsert(index_name):
         time.sleep(3)
     else:
         print("Index", f'"{index_name}"', "already exists")
-        time.sleep(3)
+        exit()
     # Wait for the index to be ready
     while not pc.describe_index(index_name).status["ready"]:
         print("Index not ready yet, waiting...")
@@ -32,8 +32,12 @@ def upsert(index_name):
 
     index = pc.Index(index_name)
     BATCH_SIZE = 50
-    with open("./documents/faq.json", "rb") as f:
-        datas = json.load(f)
+    try:
+        with open(f"./documents/{index_name}.json", "rb") as f:
+            datas = json.load(f)
+    except FileNotFoundError:
+        print(f'File "./documents/{index_name}.json" not found')
+        exit()
     id = 1
     for i in tqdm(range(0, len(datas), BATCH_SIZE)):
         response = client.embeddings.create(
@@ -58,4 +62,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Pinecone index設置")
     parser.add_argument("--index_name", type=str, help="faq or finance or insurance")
     args = parser.parse_args()
-    upsert(args.index_name)
+    if args.index_name in ["faq", "finance", "insurance"]:
+        upsert(args.index_name)
+    else:
+        print('Please input "faq" or "finance" or "insurance"')
+        exit()
