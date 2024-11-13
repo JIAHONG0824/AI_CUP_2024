@@ -2,14 +2,17 @@
 
 ## 專案結構
 ```plaintext
-├── Preprocess
-│   ├── build_json.py
-│   └── insurance_pdf_2_md.py
-├── Model
-│   ├── index.py
-├── main.py
-├── requirements.txt
-└── README.md
+專案根目錄
+├── Model/
+│   └── index.py               # 向量儲存索引
+├── Preprocess/
+│   ├── build_json.py          # 用於生成 JSON 的腳本
+│   └── insurance_pdf_2_md     # 將保險 PDF 文件轉換為 Markdown 的腳本
+├── .gitignore                 # Git 忽略文件
+├── README.md                  # 專案說明文件
+├── main.py                    # 執行預測操作的主腳本
+├── questions_preliminary.json # 包含 900 題的 JSON 文件
+└── requirements.txt           # 依賴項列表
 ```
 ## 1. 安裝相依套件
 在執行專案前，請先安裝相依套件：
