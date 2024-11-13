@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ### 保險 Markdown 檔案處理
 為了進行進一步分析，我們使用 `Preprocess/build_json.py` 對保險數據進行以下前處理：
 
-- **讀取檔案**：腳本會讀取 `insurance_markdown` 資料夾中的所有 `.md` 檔案。
+- **讀取檔案**：會先讀取 `insurance_markdown` 資料夾中的所有 `.md` 檔案。
 - **數據清理**：移除 Markdown 內容中的標題與圖片，以確保資料一致性。
 - **分段儲存**：將清理後的內容按行分割，並儲存至 `insurance.json`，同時為每行數據附加原始資料夾名稱作為來源 metadata，便於後續查閱和處理。
 
