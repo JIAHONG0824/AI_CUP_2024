@@ -3,11 +3,10 @@
 ## 專案結構
 ```plaintext
 ├── Preprocess
-│   ├── data_preprocess.py
 │   ├── build_json.py
 │   └── insurance_pdf_2_md.py
 ├── Model
-│   ├── retrieval.py
+│   ├── index.py
 ├── main.py
 ├── requirements.txt
 └── README.md
