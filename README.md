@@ -68,6 +68,7 @@ finance、insurance、faq對應的json檔案
 python Preprocess/build_json.py
 ```
 2. **執行 `Model/index.py`**：之前，需先登入[Pinecone](https://www.pinecone.io/)建立對應的 finance、insurance、faq的index，之後再執行此程式進行indexing
+分別建立 finance、insurance、faq Dimensions都是1024
 ## 5. 執行比賽測試資料
 
 - `main.py` 用於比賽時執行測試資料，並進行預測或其他指定操作。此程式會使用前處理過的資料進行推理或預測。
