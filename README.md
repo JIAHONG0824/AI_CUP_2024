@@ -59,7 +59,7 @@ faq檔案不需要額外處理步驟。
 
 1. **下載 Markdown 檔案**：從[AI_CUP_2024_dataset](https://drive.google.com/drive/u/0/folders/1ldEWRbzwjKm6Q3_dyoq8YIJRfygjiNFl)下載轉換後的 Markdown (`.md`) 檔案，自行建立 `insurance_markdown` 資料夾和 `finance_markdown` 資料夾，再將它們分別存入資料夾中，以便後續處理。
   
-   補充說明：insurance是將雲端硬碟中insurance_markdown裡面全部的資料夾放到自行建立的 `insurance_markdown` 資料夾。finance是將雲端硬碟中finance_前處理完成_AfterLlamaCloud裡面全部的.md檔放到自行建立 `finance_markdown` 資料夾。(Githup無法建立空的資料夾)
+   補充說明：insurance是將雲端硬碟中insurance_markdown裡面全部的資料夾放到自行建立的 `insurance_markdown` 資料夾。finance是將雲端硬碟中finance_前處理完成_AfterLlamaCloud裡面全部的.md檔放到自行建立 `finance_markdown` 資料夾。(Github無法建立空的資料夾)
 
 4. **執行 `build_json.py`**：下載完成後，執行 `Preprocess/build_json.py` 以建立
 finance、insurance、faq對應的json檔案
