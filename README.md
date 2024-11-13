@@ -2,14 +2,17 @@
 
 ## 專案結構
 ```plaintext
-├── Preprocess
-│   ├── build_json.py
-│   └── insurance_pdf_2_md.py
+專案根目錄
 ├── Model
-│   ├── index.py
-├── main.py
-├── requirements.txt
-└── README.md
+│   └── index.py               # 向量儲存索引
+├── Preprocess
+│   ├── build_json.py          # 用於生成 JSON 的腳本
+│   └── insurance_pdf_2_md.py     # 將保險 PDF 文件轉換為 Markdown 的腳本
+├── .gitignore                 # Git 忽略文件
+├── README.md                  # 專案說明文件
+├── main.py                    # 執行預測的程式
+├── questions_preliminary.json # 包含 900 題的初賽 JSON 文件
+└── requirements.txt           # 需要的套件
 ```
 ## 1. 安裝相依套件
 在執行專案前，請先安裝相依套件：
@@ -23,6 +26,7 @@ pip install -r requirements.txt
 
 ### 轉換細節
 - **保險 PDF**：透過 [Marker](https://github.com/VikParuchuri/marker) 將保險類 PDF 檔案轉換為 Markdown 格式。
+- 透過 `Preprocess/insurance_pdf_2_md.py` 來使用Marker把所有的insurance轉換成Markdown格式
 - **財務 PDF**：透過 [LlamaCloud 的 Parse 服務](https://cloud.llamaindex.ai/project/37d122c8-90cf-422c-b8dd-5bcdf26d6cd6/parse) 將財務類 PDF 檔案轉換為 Markdown 格式，並由四名組員每日上傳財務類 PDF 檔案，確保轉換工作的持續進行。
 
 ## 3. 前處理步驟
@@ -30,7 +34,7 @@ pip install -r requirements.txt
 ### 保險 Markdown 檔案處理
 為了進行進一步分析，我們使用 `Preprocess/build_json.py` 對保險數據進行以下前處理：
 
-- **讀取檔案**：腳本會讀取 `insurance_markdown` 資料夾中的所有 `.md` 檔案。
+- **讀取檔案**：會先讀取 `insurance_markdown` 資料夾中的所有 `.md` 檔案。
 - **數據清理**：移除 Markdown 內容中的標題與圖片，以確保資料一致性。
 - **分段儲存**：將清理後的內容按行分割，並儲存至 `insurance.json`，同時為每行數據附加原始資料夾名稱作為來源 metadata，便於後續查閱和處理。
 
@@ -59,10 +63,15 @@ finance、insurance、faq對應的json檔案
 ```
 python Preprocess/build_json.py
 ```
+2. **執行 `Model/index.py`**：之前，需先登入[Pinecone](https://www.pinecone.io/)建立對應的 finance、insurance、faq的index，之後再執行此程式進行indexing
 ## 5. 執行比賽測試資料
 
 - `main.py` 用於比賽時執行測試資料，並進行預測或其他指定操作。此程式會使用前處理過的資料進行推理或預測。
-
+- 本次比賽過程使用到的超參數如下
+    1. Settings.chunk_size = 30000
+    2. retriever similarity_top_k=10
+    3. voyageai_rerank top_k=1 
+- 其中提交的三次過程中，分別改動similarity_top_k為10->30->100
 ## 6. 初賽題目
 
 - **questions_preliminary.json**：包含初賽的 900 題題目資料，供比賽測試和驗證模型使用。
