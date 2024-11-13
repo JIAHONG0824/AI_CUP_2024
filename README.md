@@ -18,6 +18,8 @@
 ```
 ## 1. 安裝相依套件
 在執行專案前，請先安裝相依套件：
+另外python版本為 Python 3.12.5
+因為requirements.txt不能放Python 3.12.5 所以移到此處說明
 ```
 pip install -r requirements.txt
 ```
