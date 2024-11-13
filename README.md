@@ -26,6 +26,7 @@ pip install -r requirements.txt
 
 ### 轉換細節
 - **保險 PDF**：透過 [Marker](https://github.com/VikParuchuri/marker) 將保險類 PDF 檔案轉換為 Markdown 格式。
+- 透過 `Preprocess/insurance_pdf_2_md.py` 來使用Marker把所有的insurance轉換成Markdown格式
 - **財務 PDF**：透過 [LlamaCloud 的 Parse 服務](https://cloud.llamaindex.ai/project/37d122c8-90cf-422c-b8dd-5bcdf26d6cd6/parse) 將財務類 PDF 檔案轉換為 Markdown 格式，並由四名組員每日上傳財務類 PDF 檔案，確保轉換工作的持續進行。
 
 ## 3. 前處理步驟
@@ -62,10 +63,15 @@ finance、insurance、faq對應的json檔案
 ```
 python Preprocess/build_json.py
 ```
+2. **執行 `Model/index.py`**：之前，需先登入[Pinecone](https://www.pinecone.io/)建立對應的 finance、insurance、faq的index，之後再執行此程式進行indexing
 ## 5. 執行比賽測試資料
 
 - `main.py` 用於比賽時執行測試資料，並進行預測或其他指定操作。此程式會使用前處理過的資料進行推理或預測。
-
+- 本次比賽過程使用到的超參數如下
+    1. Settings.chunk_size = 30000
+    2. retriever similarity_top_k=10
+    3. voyageai_rerank top_k=1 
+- 其中提交的三次過程中，分別改動similarity_top_k為10->30->100
 ## 6. 初賽題目
 
 - **questions_preliminary.json**：包含初賽的 900 題題目資料，供比賽測試和驗證模型使用。
