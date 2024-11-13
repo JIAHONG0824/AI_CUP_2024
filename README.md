@@ -1,12 +1,15 @@
 # 專案文件
 
 ## 專案結構
-- **Model**：包含與 Pinecone 向量索引（indexing）相關的程式碼，用於向量儲存及檢索。
-- **Preprocess**：包含處理保險和財務類 PDF 檔案的前處理程式，將 PDF 轉換為 Markdown 格式並進行資料清理。
-- **documents**：包含保險資料的原始檔案集。
-- **main.py**：比賽時用於執行測試資料的程式碼。
-- **questions_preliminary.json**：包含初賽的 900 題題目集。
-- **README.md**：專案說明文件，描述了專案的整體結構和各部分的功能。
+```plaintext
+├── Preprocess
+│   ├── data_preprocess.py
+├── Model
+│   ├── retrieval.py
+├── main.py
+├── requirements.txt
+└── README.md
+```
 
 ## 1. PDF 轉換為 Markdown
 
