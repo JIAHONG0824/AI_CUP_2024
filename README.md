@@ -6,8 +6,8 @@
 ├── Model
 │   └── index.py               # 向量資料庫indexing
 ├── Preprocess
-│   ├── build_json.py          # 用於生成 JSON 的腳本
-│   └── insurance_pdf_2_md.py     # 將保險 PDF 文件轉換為 Markdown 的腳本
+│   ├── build_json.py          # 用於生成 JSON 以後續向量資料庫document建立
+│   └── insurance_pdf_2_md.py  # 將保險 PDF 文件轉換為 Markdown 的程式
 ├── reference/faq
 |   ├──pid_map_content.json    # faq資料集
 ├── .gitignore                 # Git 忽略文件
