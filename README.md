@@ -4,10 +4,12 @@
 ```plaintext
 專案根目錄
 ├── Model
-│   └── index.py               # 向量儲存索引
+│   └── index.py               # 向量資料庫indexing
 ├── Preprocess
-│   ├── build_json.py          # 用於生成 JSON 的腳本
-│   └── insurance_pdf_2_md.py     # 將保險 PDF 文件轉換為 Markdown 的腳本
+│   ├── build_json.py          # 用於生成 JSON 以後續向量資料庫document建立
+│   └── insurance_pdf_2_md.py  # 將保險 PDF 文件轉換為 Markdown 的程式
+├── reference/faq
+|   ├──pid_map_content.json    # faq資料集
 ├── .gitignore                 # Git 忽略文件
 ├── README.md                  # 專案說明文件
 ├── main.py                    # 執行預測的程式
@@ -55,15 +57,17 @@ faq檔案不需要額外處理步驟。
 
 ### 下載並處理 Markdown 檔案
 
-1. **下載 Markdown 檔案**：從[前處理完成](https://drive.google.com/drive/u/0/folders/1ldEWRbzwjKm6Q3_dyoq8YIJRfygjiNFl)下載轉換後的 Markdown (`.md`) 檔案，並將它們分別存入 `insurance_markdown` 資料夾和 `finance_markdown` 資料夾中，以便後續處理。
+1. **下載 Markdown 檔案**：從[AI_CUP_2024_dataset](https://drive.google.com/drive/u/0/folders/1ldEWRbzwjKm6Q3_dyoq8YIJRfygjiNFl)下載轉換後的 Markdown (`.md`) 檔案，自行建立 `insurance_markdown` 資料夾和 `finance_markdown` 資料夾，再將它們分別存入資料夾中，以便後續處理。
+  
+   補充說明：insurance是將雲端硬碟中insurance_markdown裡面全部的資料夾放到自行建立的 `insurance_markdown` 資料夾。finance是將雲端硬碟中finance_前處理完成_AfterLlamaCloud裡面全部的.md檔放到自行建立 `finance_markdown` 資料夾。(Github無法建立空的資料夾)
 
-2. **執行 `build_json.py`**：下載完成後，執行 `Preprocess/build_json.py` 以建立
+4. **執行 `build_json.py`**：下載完成後，執行 `Preprocess/build_json.py` 以建立
 finance、insurance、faq對應的json檔案
 
 ```
 python Preprocess/build_json.py
 ```
-2. **執行 `Model/index.py`**：之前，需先登入[Pinecone](https://www.pinecone.io/)建立對應的 finance、insurance、faq的index，之後再執行此程式進行indexing
+2. **執行 `Model/index.py`**：之前，需先登入[Pinecone](https://www.pinecone.io/)建立對應的 finance、insurance、faq的index(Dimensions都是1024)，之後再執行此程式進行indexing
 ## 5. 執行比賽測試資料
 
 - `main.py` 用於比賽時執行測試資料，並進行預測或其他指定操作。此程式會使用前處理過的資料進行推理或預測。
