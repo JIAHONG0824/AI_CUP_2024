@@ -16,15 +16,32 @@
 ├── questions_preliminary.json # 包含 900 題的初賽 JSON 文件
 └── requirements.txt           # 需要的套件
 ```
+# 使用說明
+
 ## 1. 安裝相依套件
-在執行專案前，請先安裝相依套件：
-另外python版本為 Python 3.12.5
-因為requirements.txt不能放Python 3.12.5 所以移到此處說明
+
+在開始執行專案前，請依以下步驟安裝所需的相依套件。此專案需要 Python 3.12.5 的版本來運行。
+
+### 安裝套件
+
+1. 請確認 Python 版本為 **Python 3.12.5**。
+2. 執行以下指令來安裝相依套件：
+
+    ```
+    pip install -r requirements.txt
+    ```
+
+**注意**：由於 `requirements.txt` 無法指定 Python 版本，因此請在安裝前自行確認 Python 版本為 3.12.5。
+
+### 設定環境變數
+
+請自行新增一個 `.env` 檔案，並在其中存放需要使用的 API Key。範例內容如下：
 ```
-pip install -r requirements.txt
+PINECONE_API_KEY="your_api_key"
+VOYAGEAI_API_KEY="your_api_key"
 ```
 ## 2. PDF 轉換為 Markdown
-
+**注意**： 可以跳過步驟3，步驟4有提供前處理後的資料連結。
 ### 概述
 本專案將財務（finance）及保險（insurance）相關的 PDF 檔案轉換為 Markdown 格式，以便後續處理。
 
@@ -39,8 +56,8 @@ pip install -r requirements.txt
 為了進行進一步分析，我們使用 `Preprocess/build_json.py` 對保險數據進行以下前處理：
 
 - **讀取檔案**：會先讀取 `insurance_markdown` 資料夾中的所有 `.md` 檔案。
-- **數據清理**：移除 Markdown 內容中的標題與圖片，以確保資料一致性。
-- **分段儲存**：將清理後的內容按行分割，並儲存至 `insurance.json`，同時為每行數據附加原始資料夾名稱作為來源 metadata，便於後續查閱和處理。
+- **資料清理**：移除 Markdown 內容中的標題與圖片，以確保資料一致性。
+- **分段儲存**：將清理後的內容按行分割，並儲存至 `insurance.json`，同時為每行資料附加原始資料夾名稱作為來源 metadata，便於後續查閱和處理。
 
 ### 財務 Markdown 檔案處理
 對財務類 PDF 檔案的處理需人工協助，以確保內容準確性。我們的處理步驟如下：
@@ -59,9 +76,10 @@ faq檔案不需要額外處理步驟。
 
 ### 下載並處理 Markdown 檔案
 
-1. **下載 Markdown 檔案**：從[AI_CUP_2024_dataset](https://drive.google.com/drive/u/0/folders/1ldEWRbzwjKm6Q3_dyoq8YIJRfygjiNFl)下載轉換後的 Markdown (`.md`) 檔案，自行建立 `insurance_markdown` 資料夾和 `finance_markdown` 資料夾，再將它們分別存入資料夾中，以便後續處理。
-  
-   補充說明：insurance是將雲端硬碟中insurance_markdown裡面全部的資料夾放到自行建立的 `insurance_markdown` 資料夾。finance是將雲端硬碟中finance_前處理完成_AfterLlamaCloud裡面全部的.md檔放到自行建立 `finance_markdown` 資料夾。(Github無法建立空的資料夾)
+1. **下載 Markdown 檔案**：從[AI_CUP_2024_dataset](https://drive.google.com/drive/u/0/folders/1ldEWRbzwjKm6Q3_dyoq8YIJRfygjiNFl)下載轉換後的 Markdown (`.md`) 檔案，自行建立 `insurance_markdown` 資料夾和 `finance_markdown` 資料夾，再將它們分別存入資料夾中，以便後續處理。\
+**補充說明**：\
+insurance是將雲端硬碟中insurance_markdown裡面全部的資料夾放到自行建立的 `insurance_markdown` 資料夾。\
+finance是將雲端硬碟中finance_前處理完成_AfterLlamaCloud裡面全部的.md檔放到自行建立 `finance_markdown` 資料夾。(Github無法建立空的資料夾)
 
 4. **執行 `build_json.py`**：下載完成後，執行 `Preprocess/build_json.py` 以建立
 finance、insurance、faq對應的json檔案
